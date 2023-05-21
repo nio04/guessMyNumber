@@ -5,7 +5,7 @@
   "source": "index.html",
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build --dist-dir public"
+    "build":"parcel build --public-url ./"
   },
   "keywords": [],
   "author": "",
