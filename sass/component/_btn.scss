@@ -1,0 +1,11 @@
+@use "../abstracts/var";
+
+.btn-white {
+  background-color: #fff;
+  color: var.$color-black;
+  font-size: 5rem;
+  padding: 1rem 2.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.3rem;
+}

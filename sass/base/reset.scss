@@ -1,0 +1,30 @@
+@use "../abstracts/var";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; //10px == 1rem
+}
+
+body {
+  background-image: linear-gradient(
+    to bottom,
+    var.$color-primary,
+    var.$color-secondary
+  );
+  background-repeat: no-repeat;
+
+  padding: 1.5rem;
+  min-height: 100vh;
+
+  @media only screen and (max-width: var.$bp-large) {
+    padding: 0;
+  }
+}

@@ -1,0 +1,225 @@
+@use "../base/reset.scss";
+@use "../component/btn";
+@use "../abstracts/var";
+@use "../abstracts/extend";
+
+.container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 8rem 17rem 10rem 15rem 15rem;
+  grid-row-gap: 0.5rem;
+
+  @media only screen and (max-width: var.$bp-large) {
+    grid-template-rows: 6rem 2rem 12rem 10rem 12rem 23rem;
+    grid-row-gap: 1rem;
+  }
+
+  .btn {
+    @extend .btn-white;
+
+    cursor: pointer;
+    width: 25rem;
+
+    @media only screen and (max-width: var.$bp-large) {
+      grid-column: 1 / -1;
+      grid-row: 1 / 2;
+      margin: 0 auto;
+      font-size: 2.7rem;
+      font-weight: 400;
+      width: 19rem;
+    }
+
+    @media only screen and (max-width: var.$bp-small) {
+      padding: 0.6rem 1.8rem;
+      font-size: 2rem;
+    }
+  }
+  .game-hint {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    font-size: 2.1rem;
+    color: var.$color-secondary-transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.5rem;
+
+    @extend .centerMe;
+    justify-content: flex-end;
+    align-items: start;
+
+    @media only screen and (max-width: var.$bp-large) {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+      justify-content: center;
+    }
+  }
+
+  header {
+    grid-column: 1 / span 2;
+
+    color: var.$color-secondary;
+    font-size: 5.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    word-spacing: 0.8rem;
+    letter-spacing: 0.5rem;
+    @extend .centerMe;
+
+    @media only screen and (max-width: var.$bp-large) {
+      font-size: 4rem;
+    }
+
+    @media only screen and (max-width: var.$bp-small) {
+      font-size: 3rem;
+      word-spacing: 0.4rem;
+    }
+  }
+  .show-box {
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+    margin: 0 auto;
+    padding: 0 10rem;
+    border-radius: 2rem;
+    @extend .btn-white;
+    @extend .centerMe;
+    .show-hidden-number {
+      font-size: 8rem;
+    }
+  }
+  .win {
+    transition: all 2s;
+    clip-path: polygon(0 21%, 100% 21%, 76% 100%, 16% 100%);
+    background-color: rgba(0, 0, 0, 0.647);
+    .win-elem {
+      font-size: 10rem;
+      color: bisque;
+      font-style: italic;
+      font-weight: 600;
+      padding-top: 2rem;
+    }
+  }
+
+  .input-area {
+    grid-column: 1 / 2;
+    @extend .centerMe;
+
+    @media only screen and (max-width: var.$bp-large) {
+      transform: translate(0);
+      grid-row: 5 / 6;
+      grid-column: 1 / -1;
+      margin-top: 0;
+    }
+
+    .user-input {
+      width: 25rem;
+      height: 15rem;
+      text-align: center;
+      font-size: 15rem;
+      background-color: var.$color-primary;
+      color: var.$color-secondary;
+      border: 0.4rem solid var.$color-secondary;
+      transition: all 0.6s;
+
+      @media only screen and (max-width: var.$bp-large) {
+        height: 10rem;
+        width: 25rem;
+        font-size: 6rem;
+      }
+
+      &:focus {
+        outline: none;
+        width: 35rem;
+        height: 25rem;
+        font-size: 20rem;
+
+        @media only screen and (max-width: var.$bp-large) {
+          width: 20rem;
+          height: 11rem;
+          font-size: 10rem;
+        }
+      }
+    }
+  }
+  .check-result-box {
+    grid-column: 1 / 2;
+
+    @extend .centerMe;
+
+    button {
+      @extend .btn-white;
+      width: 35rem;
+      box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.4);
+      transform: translateY(-0.3rem);
+      transition: all 0.4s;
+      @media only screen and (max-width: var.$bp-large) {
+        width: 25rem;
+      }
+      @media only screen and (max-width: var.$bp-small) {
+        width: 16rem;
+        font-size: 3rem;
+      }
+
+      &:active {
+        border: none;
+        transform: translate(0);
+        box-shadow: 0 0rem 0rem rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+  .show-stat {
+    grid-column: 2 / 3;
+    color: var.$color-secondary;
+
+    @extend .centerMe;
+    flex-direction: column;
+
+    color: var.$color-black;
+    text-transform: capitalize;
+    font-size: 2.5rem;
+
+    @media only screen and (max-width: var.$bp-large) {
+      grid-row: 6 / -1;
+    }
+    h2 {
+      text-align: center;
+      word-spacing: 0.8rem;
+      letter-spacing: 0.4rem;
+      margin-bottom: 4rem;
+      border: 0.3rem solid #fff;
+      padding: 2rem 4rem;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(0, 128, 0, 0.532),
+        rgba(255, 255, 255, 0.592)
+      );
+
+      @media only screen and (max-width: var.$bp-largest) {
+        word-spacing: 0.1rem;
+        letter-spacing: 0.1rem;
+        padding: 2rem 2.6rem;
+        font-size: 2.9rem;
+      }
+
+      @media only screen and (max-width: var.$bp-medium) {
+        font-size: 2rem;
+        padding: 1.4rem 1.7rem;
+        letter-spacing: 0;
+        word-spacing: 0;
+      }
+    }
+    h3 {
+      word-spacing: 0.9rem;
+      line-height: 5rem;
+    }
+  }
+}
+.winning {
+  background-image: linear-gradient(
+    to top,
+    var.$color-primary,
+    var.$color-secondary
+  );
+  background-repeat: no-repeat;
+  transition: all 2s;
+}
